@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Manjunatha Rice Traders — Premium Wholesale Rice, Bengaluru</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:       #faf5eb;
+      --cream-dark:  #f0e6cc;
+      --ink:         #0d1a09;
+      --ink-soft:    #2a3d26;
+      --green:       #1b4d1e;
+      --green-mid:   #2a6b2e;
+      --terra:       #c05a24;
+      --terra-light: #e07545;
+      --gold:        #b8841a;
+      --muted:       #7a6e5e;
+      --border:      rgba(27,77,30,0.12);
+      --border-dark: rgba(250,245,235,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 9990;
+      pointer-events: none; opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+
+    #cur-dot {
+      position: fixed; width: 9px; height: 9px;
+      background: var(--terra); border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: transform 0.08s;
+    }
+    #cur-ring {
+      position: fixed; width: 38px; height: 38px;
+      border: 1px solid var(--terra); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%,-50%);
+      opacity: 0.55; transition: width 0.3s, height 0.3s, opacity 0.3s;
+    }
+    #cur-ring.hover { width: 58px; height: 58px; opacity: 0.25; }
+    a, button { cursor: none; }
+
+    #spb {
+      position: fixed; top: 0; left: 0; height: 2px;
+      background: var(--terra); z-index: 200; width: 0%;
+      transition: width 0.08s linear;
+    }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 56px; }
+    .display { font-family: 'Cormorant Garamond', serif; }
+
+    .section-label {
+      font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--muted); font-weight: 500; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--terra); flex-shrink: 0;
+    }
+
+    .r { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .r.on { opacity: 1; transform: translateY(0); }
+    .r.d1 { transition-delay: 0.1s; }
+    .r.d2 { transition-delay: 0.2s; }
+    .r.d3 { transition-delay: 0.3s; }
+    .r.d4 { transition-delay: 0.4s; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 28px 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s ease, padding 0.3s ease, box-shadow 0.3s ease;
+    }
+    nav.scrolled {
+      background: rgba(250,245,235,0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 18px 56px;
+      box-shadow: 0 1px 0 var(--border);
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-orb {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--green); color: var(--cream);
+      display: flex; align-items: center; justify-content: center; font-size: 14px;
+      flex-shrink: 0;
+    }
+    .nav-logo-text strong {
+      display: block; font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 600; color: var(--green); line-height: 1.1;
+    }
+    .nav-logo-text span {
+      display: block; font-size: 0.62rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-size: 0.82rem; letter-spacing: 0.06em;
+      color: var(--ink); font-weight: 400; position: relative;
+      transition: color 0.2s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--terra); transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--terra); }
+
+    .nav-cta {
+      background: var(--green); color: var(--cream);
+      padding: 10px 22px; border-radius: 2px; text-decoration: none;
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 500; transition: background 0.2s, transform 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+    .hamburger {
+      display: none; background: none; border: none; padding: 4px; flex-direction: column; gap: 5px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 1.5px; background: var(--ink); transition: all 0.3s;
+    }
+
+    .mob-menu {
+      position: fixed; inset: 0; background: var(--ink); z-index: 99;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 28px; opacity: 0; pointer-events: none; transition: opacity 0.35s;
+    }
+    .mob-menu.open { opacity: 1; pointer-events: all; }
+    .mob-menu a {
+      font-family: 'Cormorant Garamond', serif; color: var(--cream);
+      text-decoration: none; font-size: clamp(2rem, 6vw, 3rem); font-weight: 300;
+      transition: color 0.2s; letter-spacing: 0.04em;
+    }
+    .mob-menu a:hover { color: var(--terra); }
+    .mob-close {
+      position: absolute; top: 24px; right: 24px;
+      background: none; border: none; color: rgba(250,245,235,0.5);
+      font-size: 1.4rem; padding: 8px; transition: color 0.2s;
+    }
+    .mob-close:hover { color: var(--cream); }
+
+    #hero { min-height: 100vh; display: grid; grid-template-columns: 52% 48%; }
+
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 140px 64px 80px 56px; position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--terra); font-weight: 500; margin-bottom: 28px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-eyebrow::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--terra); }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 4.5vw, 5.2rem);
+      font-weight: 600; line-height: 1.02; color: var(--ink);
+      margin-bottom: 28px;
+    }
+    .hero-title em { font-style: italic; color: var(--green); }
+
+    .hero-sub {
+      color: var(--muted); font-size: 0.96rem; max-width: 360px;
+      line-height: 1.75; margin-bottom: 44px;
+    }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+
+    .btn-pri {
+      background: var(--green); color: var(--cream);
+      padding: 14px 30px; border-radius: 2px; text-decoration: none;
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 500; transition: all 0.25s; display: inline-flex; align-items: center; gap: 9px;
+    }
+    .btn-pri:hover { background: var(--green-mid); transform: translateY(-2px); }
+
+    .btn-out {
+      border: 1px solid rgba(13,26,9,0.3); color: var(--ink);
+      padding: 14px 30px; border-radius: 2px; text-decoration: none;
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 500; transition: all 0.25s; display: inline-flex; align-items: center; gap: 9px;
+    }
+    .btn-out:hover { background: var(--ink); color: var(--cream); }
+
+    .hero-stats {
+      display: flex; gap: 36px; padding-top: 36px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat-n {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
+      font-weight: 600; color: var(--green); display: block; line-height: 1;
+    }
+    .hero-stat-l {
+      font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+    }
+
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center; display: block;
+    }
+    .hero-right::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(155deg, rgba(27,77,30,0.35) 0%, rgba(13,26,9,0.65) 100%);
+    }
+    .hero-badge {
+      position: absolute; bottom: 44px; left: 44px; z-index: 2;
+      background: rgba(250,245,235,0.1); backdrop-filter: blur(18px);
+      border: 1px solid rgba(250,245,235,0.18); border-radius: 4px;
+      padding: 20px 26px; color: var(--cream);
+    }
+    .hero-badge-tag { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px; }
+    .hero-badge-val { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; }
+
+    .scroll-hint {
+      position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--muted); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px; height: 44px; background: var(--muted);
+      animation: sl 1.8s ease-in-out infinite;
+    }
+    @keyframes sl {
+      0%,100% { transform: scaleY(1); opacity: 1; }
+      50%      { transform: scaleY(0.2); opacity: 0.2; }
+    }
+
+    .marquee-wrap {
+      background: var(--green); padding: 15px 0; overflow: hidden;
+    }
+    .marquee-inner { display: flex; width: max-content; animation: mq 35s linear infinite; }
+    .marquee-inner:hover { animation-play-state: paused; }
+    .mi {
+      display: flex; align-items: center; gap: 20px;
+      padding: 0 28px; font-size: 0.7rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(250,245,235,0.75); white-space: nowrap; font-weight: 400;
+    }
+    .mi i { color: var(--terra-light); font-size: 0.45rem; }
+    @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    #about { padding: 112px 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center; }
+
+    .about-images { position: relative; height: 520px; }
+    .ab-img-main {
+      width: 74%; height: 390px; object-fit: cover;
+      position: absolute; top: 0; right: 0; border-radius: 4px;
+    }
+    .ab-img-accent {
+      width: 52%; height: 230px; object-fit: cover;
+      position: absolute; bottom: 0; left: 0; border-radius: 4px;
+      border: 5px solid var(--cream);
+      box-shadow: 0 20px 60px rgba(13,26,9,0.14);
+    }
+    .ab-float-badge {
+      position: absolute; top: 36px; left: 12px; z-index: 2;
+      background: var(--terra); color: #fff; border-radius: 50%;
+      width: 84px; height: 84px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; text-align: center;
+      box-shadow: 0 8px 32px rgba(192,90,36,0.45);
+    }
+    .ab-float-badge strong { font-size: 1.85rem; font-weight: 700; line-height: 1; }
+    .ab-float-badge span { font-size: 0.52rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.9; }
+
+    .about-pull {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.75rem;
+      font-weight: 400; font-style: italic; color: var(--green); line-height: 1.45;
+      margin: 20px 0 28px; padding-left: 20px; border-left: 2px solid var(--terra);
+    }
+    .about-p { color: var(--muted); line-height: 1.82; margin-bottom: 18px; font-size: 0.92rem; }
+
+    .stats-row { background: var(--ink); color: var(--cream); padding: 0; }
+    .stats-inner { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-cell {
+      padding: 52px 0; text-align: center;
+      border-right: 1px solid var(--border-dark);
+      transition: background 0.3s;
+    }
+    .stat-cell:hover { background: rgba(255,255,255,0.03); }
+    .stat-cell:last-child { border-right: none; }
+    .stat-n {
+      font-family: 'Cormorant Garamond', serif; font-size: 3.8rem;
+      font-weight: 600; color: var(--gold); line-height: 1;
+      display: block; margin-bottom: 10px;
+    }
+    .stat-l { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250,245,235,0.4); }
+
+    #products { padding: 112px 0; background: #f2e9d8; }
+    .prod-header {
+      display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px;
+    }
+    .prod-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+
+    .prod-card {
+      background: var(--cream); border-radius: 4px; overflow: hidden;
+      border: 1px solid transparent;
+      transition: transform 0.35s cubic-bezier(0.2,0,0,1), box-shadow 0.35s, border-color 0.35s;
+    }
+    .prod-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 28px 52px rgba(13,26,9,0.1);
+      border-color: rgba(27,77,30,0.15);
+    }
+    .prod-img { height: 196px; overflow: hidden; position: relative; }
+    .prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; }
+    .prod-card:hover .prod-img img { transform: scale(1.07); }
+    .prod-tag {
+      position: absolute; top: 12px; right: 12px;
+      background: var(--green); color: var(--cream);
+      font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 2px;
+    }
+    .prod-body { padding: 20px; }
+    .prod-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+      font-weight: 600; color: var(--ink); margin-bottom: 7px;
+    }
+    .prod-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+    .prod-foot {
+      padding: 12px 20px; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .prod-cta {
+      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--terra); font-weight: 500; text-decoration: none;
+      display: flex; align-items: center; gap: 6px; transition: gap 0.2s;
+    }
+    .prod-cta:hover { gap: 10px; }
+
+    #why { background: var(--ink); padding: 112px 0; color: var(--cream); }
+    .why-hed { margin-bottom: 0; }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(2,1fr);
+      gap: 1px; background: var(--border-dark); margin-top: 56px;
+    }
+    .why-cell {
+      background: var(--ink); padding: 52px;
+      transition: background 0.3s;
+    }
+    .why-cell:hover { background: #162212; }
+    .why-icon-wrap {
+      width: 50px; height: 50px; border: 1px solid var(--border-dark);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: var(--terra); font-size: 1rem; margin-bottom: 22px;
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
+    }
+    .why-cell:hover .why-icon-wrap { background: var(--terra); border-color: var(--terra); color: #fff; }
+    .why-cell h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.55rem;
+      font-weight: 600; margin-bottom: 12px; color: var(--cream);
+    }
+    .why-cell p { font-size: 0.85rem; color: rgba(250,245,235,0.5); line-height: 1.82; }
+
+    #process { padding: 112px 0; }
+    .proc-hd { text-align: center; margin-bottom: 72px; }
+    .proc-steps { display: grid; grid-template-columns: repeat(3,1fr); position: relative; }
+    .proc-steps::before {
+      content: ''; position: absolute; top: 27px;
+      left: calc(16.66% + 20px); right: calc(16.66% + 20px);
+      height: 1px; background: var(--border);
+    }
+    .proc-step { padding: 0 36px; text-align: center; }
+    .proc-num {
+      width: 54px; height: 54px; border: 1px solid var(--border);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600;
+      color: var(--green); margin: 0 auto 26px; background: var(--cream);
+      position: relative; z-index: 1; transition: all 0.3s;
+    }
+    .proc-step:hover .proc-num { background: var(--green); color: var(--cream); border-color: var(--green); }
+    .proc-step h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+      font-weight: 600; margin-bottom: 13px;
+    }
+    .proc-step p { font-size: 0.83rem; color: var(--muted); line-height: 1.75; }
+
+    #testimonials { background: var(--cream-dark); padding: 112px 0; }
+    .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 56px; }
+    .test-card {
+      background: var(--cream); border-radius: 4px; padding: 38px;
+      border: 1px solid var(--border); position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .test-card:hover { transform: translateY(-5px); box-shadow: 0 18px 50px rgba(13,26,9,0.09); }
+    .test-qmark {
+      font-family: 'Cormorant Garamond', serif; font-size: 9rem;
+      color: var(--cream-dark); position: absolute; top: -24px; right: 20px;
+      line-height: 1; pointer-events: none; transition: color 0.3s;
+    }
+    .test-card:hover .test-qmark { color: rgba(192,90,36,0.07); }
+    .test-stars { color: var(--gold); margin-bottom: 18px; font-size: 0.7rem; letter-spacing: 3px; }
+    .test-text {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+      font-weight: 400; font-style: italic; color: var(--ink);
+      line-height: 1.72; margin-bottom: 26px; position: relative; z-index: 1;
+    }
+    .test-author {
+      display: flex; align-items: center; gap: 13px;
+      border-top: 1px solid var(--border); padding-top: 20px;
+    }
+    .test-av {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--green);
+      color: var(--cream); display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1rem; flex-shrink: 0;
+    }
+    .test-name { font-weight: 500; font-size: 0.88rem; color: var(--ink); }
+    .test-loc { font-size: 0.72rem; color: var(--muted); }
+
+    #contact { display: grid; grid-template-columns: 40% 60%; }
+
+    .con-left {
+      background: var(--ink); color: var(--cream);
+      padding: 88px 56px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .con-left h2 {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem,3vw,3.2rem);
+      font-weight: 600; margin: 18px 0 36px; line-height: 1.1;
+    }
+    .con-detail { display: flex; gap: 18px; margin-bottom: 26px; align-items: flex-start; }
+    .con-icon {
+      width: 36px; height: 36px; border: 1px solid var(--border-dark);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: var(--terra); font-size: 0.72rem; flex-shrink: 0; margin-top: 2px;
+    }
+    .con-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+    .con-val { font-size: 0.88rem; color: rgba(250,245,235,0.75); line-height: 1.6; }
+    .con-val a { color: rgba(250,245,235,0.75); text-decoration: none; transition: color 0.2s; }
+    .con-val a:hover { color: var(--terra); }
+    .con-map { margin-top: 36px; border-radius: 4px; overflow: hidden; height: 170px; }
+    .con-map iframe { width: 100%; height: 100%; border: 0; }
+
+    .con-right { padding: 88px 64px; background: #fff; }
+    .form-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      font-weight: 600; color: var(--ink); margin-bottom: 7px;
+    }
+    .form-sub { color: var(--muted); font-size: 0.82rem; margin-bottom: 34px; line-height: 1.6; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block; font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 8px; font-weight: 500;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; border: 1px solid #ddd7cb; border-radius: 2px;
+      padding: 11px 15px; font-family: 'Jost', sans-serif; font-size: 0.88rem;
+      color: var(--ink); background: #fff; transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+      appearance: none;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: var(--green); box-shadow: 0 0 0 3px rgba(27,77,30,0.08);
+    }
+    .form-group textarea { resize: vertical; min-height: 96px; }
+    .form-submit {
+      background: var(--green); color: var(--cream); border: none;
+      padding: 14px; border-radius: 2px; font-family: 'Jost', sans-serif;
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 500; width: 100%; transition: background 0.2s; cursor: none;
+    }
+    .form-submit:hover { background: var(--green-mid); }
+    .form-ok { color: var(--green); text-align: center; font-size: 0.82rem; margin-top: 12px; display: none; }
+    .form-ok.on { display: block; }
+
+    footer { background: var(--ink); color: var(--cream); padding: 68px 0 32px; }
+    .ft-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 52px; }
+    .ft-brand p { color: rgba(250,245,235,0.45); font-size: 0.83rem; margin: 16px 0 24px; line-height: 1.75; max-width: 240px; }
+    .ft-socials { display: flex; gap: 10px; }
+    .ft-soc {
+      width: 32px; height: 32px; border: 1px solid var(--border-dark);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: rgba(250,245,235,0.35); font-size: 0.72rem; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .ft-soc:hover { background: var(--terra); border-color: var(--terra); color: #fff; }
+    .ft-col h4 { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250,245,235,0.35); margin-bottom: 20px; }
+    .ft-col ul { list-style: none; }
+    .ft-col ul li { margin-bottom: 10px; }
+    .ft-col ul li a { color: rgba(250,245,235,0.55); text-decoration: none; font-size: 0.83rem; transition: color 0.2s; }
+    .ft-col ul li a:hover { color: var(--cream); }
+    .ft-bottom {
+      border-top: 1px solid var(--border-dark); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .ft-bottom p { font-size: 0.72rem; color: rgba(250,245,235,0.28); }
+
+    .wa-fab {
+      position: fixed; bottom: 28px; right: 28px; z-index: 500;
+      width: 52px; height: 52px; border-radius: 50%; background: #25d366;
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      font-size: 1.45rem; text-decoration: none;
+      box-shadow: 0 8px 28px rgba(37,211,102,0.4);
+      animation: waP 2.5s ease-in-out infinite; transition: transform 0.2s;
+    }
+    .wa-fab:hover { transform: scale(1.1); }
+    @keyframes waP {
+      0%,100% { box-shadow: 0 8px 28px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.4); }
+      50%      { box-shadow: 0 8px 28px rgba(37,211,102,0.4), 0 0 0 13px rgba(37,211,102,0); }
+    }
+
+    @media (max-width: 1100px) {
+      .prod-grid { grid-template-columns: repeat(2,1fr); }
+      .ft-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 820px) {
+      .container { padding: 0 28px; }
+      nav, nav.scrolled { padding: 20px 28px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 110px 28px 64px; }
+      .hero-right { height: 55vh; }
+      .about-grid { grid-template-columns: 1fr; gap: 44px; }
+      .about-images { height: 320px; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .prod-grid { grid-template-columns: 1fr 1fr; }
+      .prod-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .proc-steps { grid-template-columns: 1fr; gap: 40px; }
+      .proc-steps::before { display: none; }
+      .test-grid { grid-template-columns: 1fr; }
+      #contact { grid-template-columns: 1fr; }
+      .con-left, .con-right { padding: 64px 28px; }
+      .ft-top { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+      body { cursor: auto; }
+      #cur-dot, #cur-ring { display: none; }
+      a, button { cursor: auto; }
+    }
+    @media (max-width: 520px) {
+      .prod-grid { grid-template-columns: 1fr; }
+      .ft-top { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="spb"></div>
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-orb"><i class="fas fa-seedling"></i></div>
+      <div class="nav-logo-text">
+        <strong>Sri Manjunatha</strong>
+        <span>Rice Traders</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:08025450894" class="nav-cta"><i class="fas fa-phone-alt"></i> 080&nbsp;2545&nbsp;0894</a>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mob-menu" id="mob">
+    <button class="mob-close" id="mob-close"><i class="fas fa-times"></i></button>
+    <a href="#about"        class="mob-lnk">About</a>
+    <a href="#products"     class="mob-lnk">Products</a>
+    <a href="#why"          class="mob-lnk">Why Us</a>
+    <a href="#testimonials" class="mob-lnk">Reviews</a>
+    <a href="#contact"      class="mob-lnk">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Est. 2008 &nbsp;·&nbsp; Bengaluru, Karnataka</div>
+      <h1 class="hero-title">
+        The Finest<br>
+        <em>Rice,</em> Directly<br>
+        from the Field.
+      </h1>
+      <p class="hero-sub">Premium-grade wholesale rice for households, restaurants &amp; businesses across Bengaluru. Quality you can taste, prices you'll love.</p>
+      <div class="hero-actions">
+        <a href="tel:08025450894" class="btn-pri"><i class="fas fa-phone-alt"></i> Call for Prices</a>
+        <a href="#products" class="btn-out">View Our Range &rarr;</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-n">17<sup style="font-size:0.55em;">+</sup></span>
+          <span class="hero-stat-l">Years</span>
+        </div>
+        <div>
+          <span class="hero-stat-n">5000<sup style="font-size:0.55em;">+</sup></span>
+          <span class="hero-stat-l">Customers</span>
+        </div>
+        <div>
+          <span class="hero-stat-n">10<sup style="font-size:0.55em;">+</sup></span>
+          <span class="hero-stat-l">Varieties</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&q=80" alt="Lush green rice paddy fields">
+      <div class="hero-badge">
+        <div class="hero-badge-tag">Available Now</div>
+        <div class="hero-badge-val">Wholesale Pricing<br>on All Bulk Orders</div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-inner">
+      <div class="mi"><i class="fas fa-circle"></i>Farm to Table</div>
+      <div class="mi"><i class="fas fa-circle"></i>Free Delivery in Bengaluru</div>
+      <div class="mi"><i class="fas fa-circle"></i>Basmati · Sona Masoori · Ponni · Brown Rice</div>
+      <div class="mi"><i class="fas fa-circle"></i>Same-Day Dispatch</div>
+      <div class="mi"><i class="fas fa-circle"></i>Trusted Since 2008</div>
+      <div class="mi"><i class="fas fa-circle"></i>Bulk Wholesale Rates</div>
+      <div class="mi"><i class="fas fa-circle"></i>Superior Mill Quality</div>
+      <div class="mi"><i class="fas fa-circle"></i>Banaswadi, Bengaluru</div>
+      <div class="mi"><i class="fas fa-circle"></i>Farm to Table</div>
+      <div class="mi"><i class="fas fa-circle"></i>Free Delivery in Bengaluru</div>
+      <div class="mi"><i class="fas fa-circle"></i>Basmati · Sona Masoori · Ponni · Brown Rice</div>
+      <div class="mi"><i class="fas fa-circle"></i>Same-Day Dispatch</div>
+      <div class="mi"><i class="fas fa-circle"></i>Trusted Since 2008</div>
+      <div class="mi"><i class="fas fa-circle"></i>Bulk Wholesale Rates</div>
+      <div class="mi"><i class="fas fa-circle"></i>Superior Mill Quality</div>
+      <div class="mi"><i class="fas fa-circle"></i>Banaswadi, Bengaluru</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="r">
+          <div class="about-images">
+            <img class="ab-img-main"   src="https://images.unsplash.com/photo-1586201375761-83865001e8ac?w=700&q=80" alt="Premium rice grains close-up">
+            <img class="ab-img-accent" src="https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?w=500&q=80" alt="Rice harvest fields">
+            <div class="ab-float-badge">
+              <strong>17+</strong>
+              <span>Years of<br>Trust</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="section-label r">Our Story</div>
+          <blockquote class="about-pull r d1">
+            "Bringing the harvest's very best grain to every kitchen in Bengaluru."
+          </blockquote>
+          <p class="about-p r d2">Founded in 2008, Sri Manjunatha Rice Traders has grown into one of Bengaluru's most trusted wholesale rice suppliers. We source directly from Karnataka and Andhra Pradesh's finest mills — guaranteeing purity, freshness, and consistent quality in every sack.</p>
+          <p class="about-p r d3">Whether you're a family buying monthly stock or a restaurant needing bulk supply, we tailor our service to your needs — with competitive pricing, no middlemen, and reliable same-day delivery.</p>
+          <a href="tel:08025450894" class="btn-pri r d4" style="margin-top:16px; display:inline-flex;">
+            <i class="fas fa-phone-alt"></i> Get a Quote Today
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stats-inner">
+      <div class="stat-cell">
+        <span class="stat-n" data-target="17">0</span>
+        <span class="stat-l">Years in Business</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n" data-target="5000">0</span>
+        <span class="stat-l">Happy Customers</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n" data-target="10">0</span>
+        <span class="stat-l">Rice Varieties</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n">1-Day</span>
+        <span class="stat-l">Delivery Window</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="container">
+      <div class="prod-header">
+        <div>
+          <div class="section-label r">What We Offer</div>
+          <h2 class="display r d1" style="font-size:clamp(2rem,3.2vw,2.8rem);font-weight:600;">
+            Our Premium <em>Grain</em> Selection
+          </h2>
+        </div>
+        <a href="#contact" class="btn-out r d2">Enquire Now &rarr;</a>
+      </div>
+
+      <div class="prod-grid">
+        <div class="prod-card r">
+          <div class="prod-img">
+           <img src="images/Instant-Pot-Basmati-Rice-7.jpg" alt="Basmati Rice">
+            <div class="prod-tag">Premium</div>
+          </div>
+          <div class="prod-body">
+            <div class="prod-name">Basmati Rice</div>
+            <p class="prod-desc">Aged long-grain, naturally aromatic. The preferred choice for biryanis and pilafs, with an irresistible fragrance.</p>
+          </div>
+          <div class="prod-foot">
+            <a href="https://wa.me/918025450894?text=I%20want%20pricing%20for%20Basmati%20Rice" class="prod-cta" target="_blank">WhatsApp Price <i class="fas fa-arrow-right"></i></a>
+            <i class="fab fa-whatsapp" style="color:#25d366;font-size:1.1rem;"></i>
+          </div>
+        </div>
+
+        <div class="prod-card r d1">
+          <div class="prod-img">
+            <img src="https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?w=500&q=80" alt="Sona Masoori">
+            <div class="prod-tag" style="background:var(--terra);">Best Seller</div>
+          </div>
+          <div class="prod-body">
+            <div class="prod-name">Sona Masoori</div>
+            <p class="prod-desc">Medium-grain, lightweight and low-starch. The go-to variety for everyday South Indian meals and tiffin.</p>
+          </div>
+          <div class="prod-foot">
+            <a href="https://wa.me/918025450894?text=I%20want%20pricing%20for%20Sona%20Masoori" class="prod-cta" target="_blank">WhatsApp Price <i class="fas fa-arrow-right"></i></a>
+            <i class="fab fa-whatsapp" style="color:#25d366;font-size:1.1rem;"></i>
+          </div>
+        </div>
+
+        <div class="prod-card r d2">
+          <div class="prod-img">
+           <img src="images/ponni.jpg" alt="ponni Rice">
+            <div class="prod-tag" style="background:var(--gold);">Traditional</div>
+          </div>
+          <div class="prod-body">
+            <div class="prod-name">Ponni Rice</div>
+            <p class="prod-desc">Soft, tender texture with a mild flavour. The quintessential South Indian staple, perfect for rice and sambar.</p>
+          </div>
+          <div class="prod-foot">
+            <a href="https://wa.me/918025450894?text=I%20want%20pricing%20for%20Ponni%20Rice" class="prod-cta" target="_blank">WhatsApp Price <i class="fas fa-arrow-right"></i></a>
+            <i class="fab fa-whatsapp" style="color:#25d366;font-size:1.1rem;"></i>
+          </div>
+        </div>
+
+        <div class="prod-card r d3">
+          <div class="prod-img">
+             <img src="images/brown rice.jfif" alt="brown rice jfif">
+            <div class="prod-tag" style="background:#4e7a38;">Organic</div>
+          </div>
+          <div class="prod-body">
+            <div class="prod-name">Brown Rice</div>
+            <p class="prod-desc">Whole grain, fibre-rich, and naturally nutritious. The healthy household choice for mindful eating.</p>
+          </div>
+          <div class="prod-foot">
+            <a href="https://wa.me/918025450894?text=I%20want%20pricing%20for%20Brown%20Rice" class="prod-cta" target="_blank">WhatsApp Price <i class="fas fa-arrow-right"></i></a>
+            <i class="fab fa-whatsapp" style="color:#25d366;font-size:1.1rem;"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why">
+    <div class="container">
+      <div class="section-label r" style="color:rgba(250,245,235,0.35);">Why Choose Us</div>
+      <h2 class="display r d1" style="font-size:clamp(2rem,3.2vw,2.8rem);font-weight:600;margin-top:12px;">
+        The Sri Manjunatha Difference
+      </h2>
+      <div class="why-grid">
+        <div class="why-cell r">
+          <div class="why-icon-wrap"><i class="fas fa-seedling"></i></div>
+          <h3>Direct from Mill</h3>
+          <p>We source directly from trusted mills in Karnataka and Andhra Pradesh — cutting out middlemen to deliver superior quality at unbeatable prices.</p>
+        </div>
+        <div class="why-cell r d1">
+          <div class="why-icon-wrap"><i class="fas fa-tags"></i></div>
+          <h3>Wholesale Pricing</h3>
+          <p>Competitive market rates with additional bulk discounts. Whether 10 kg or 10 tonnes, we offer pricing that genuinely works for you.</p>
+        </div>
+        <div class="why-cell r d2">
+          <div class="why-icon-wrap"><i class="fas fa-truck"></i></div>
+          <h3>Free Home Delivery</h3>
+          <p>Complimentary delivery within Bengaluru for qualifying orders. Fast, reliable, and always on time — no exceptions.</p>
+        </div>
+        <div class="why-cell r d3">
+          <div class="why-icon-wrap"><i class="fas fa-handshake"></i></div>
+          <h3>Trusted Since 2008</h3>
+          <p>Over 17 years of reliable service and thousands of loyal repeat customers. Our reputation is built on consistency and integrity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="proc-hd">
+        <div class="section-label r" style="justify-content:center;">How It Works</div>
+        <h2 class="display r d1" style="font-size:clamp(2rem,3.2vw,2.8rem);font-weight:600;">
+          From Farm <em>to</em> Your Home
+        </h2>
+      </div>
+      <div class="proc-steps">
+        <div class="proc-step r">
+          <div class="proc-num">01</div>
+          <h3>Source &amp; Select</h3>
+          <p>We visit mills directly to hand-select only the finest batches — graded for purity, moisture, and grain integrity.</p>
+        </div>
+        <div class="proc-step r d1">
+          <div class="proc-num">02</div>
+          <h3>Clean &amp; Store</h3>
+          <p>Each variety is cleaned, sorted, and stored in hygienic conditions to preserve natural freshness and aroma.</p>
+        </div>
+        <div class="proc-step r d2">
+          <div class="proc-num">03</div>
+          <h3>Deliver Fresh</h3>
+          <p>Orders are carefully packed and dispatched same-day. Premium rice at your doorstep — always guaranteed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-label r">Customer Reviews</div>
+      <h2 class="display r d1" style="font-size:clamp(2rem,3.2vw,2.8rem);font-weight:600;margin-top:12px;">
+        What Our Customers <em>Say</em>
+      </h2>
+      <div class="test-grid">
+        <div class="test-card r">
+          <div class="test-qmark">"</div>
+          <div class="test-stars">★★★★★</div>
+          <p class="test-text">The quality of rice is excellent and the price very reasonable. Best wholesaler in the Banaswadi area — I've been a loyal customer for over 5 years.</p>
+          <div class="test-author">
+            <div class="test-av">R</div>
+            <div>
+              <div class="test-name">Ramesh S.</div>
+              <div class="test-loc">Banaswadi, Bengaluru</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card r d1">
+          <div class="test-qmark">"</div>
+          <div class="test-stars">★★★★★</div>
+          <p class="test-text">They also do home delivery, always punctual and the rice is always fresh. The Sona Masoori is absolutely top notch. Highly recommend to all households.</p>
+          <div class="test-author">
+            <div class="test-av">L</div>
+            <div>
+              <div class="test-name">Lakshmi N.</div>
+              <div class="test-loc">Krishnarajapuram, Bengaluru</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card r d2">
+          <div class="test-qmark">"</div>
+          <div class="test-stars">★★★★★</div>
+          <p class="test-text">Very professional service — reliable, consistent, and trustworthy. We use them for our restaurant supply and have never once had a quality issue.</p>
+          <div class="test-author">
+            <div class="test-av">K</div>
+            <div>
+              <div class="test-name">Karthik M.</div>
+              <div class="test-loc">Indiranagar, Bengaluru</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="con-left">
+      <div class="section-label" style="color:rgba(250,245,235,0.35);">Find Us</div>
+      <h2>Let's Get You the Best Rice in Bengaluru.</h2>
+
+      <div class="con-detail">
+        <div class="con-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <div class="con-label">Address</div>
+          <div class="con-val">Shop No. 84, Horanavu Main Road,<br>Outer Ring Rd, near Banaswadi,<br>Dodda Banaswadi, Bengaluru – 560043</div>
+        </div>
+      </div>
+      <div class="con-detail">
+        <div class="con-icon"><i class="fas fa-phone-alt"></i></div>
+        <div>
+          <div class="con-label">Phone</div>
+          <div class="con-val"><a href="tel:08025450894">080 2545 0894</a></div>
+        </div>
+      </div>
+      <div class="con-detail">
+        <div class="con-icon"><i class="fas fa-clock"></i></div>
+        <div>
+          <div class="con-label">Hours</div>
+          <div class="con-val">Mon – Sat: 8:00 AM – 7:00 PM<br>Sunday: 9:00 AM – 1:00 PM</div>
+        </div>
+      </div>
+      <div class="con-detail">
+        <div class="con-icon"><i class="fab fa-whatsapp"></i></div>
+        <div>
+          <div class="con-label">WhatsApp</div>
+          <div class="con-val"><a href="https://wa.me/918025450894" target="_blank">Message us instantly</a></div>
+        </div>
+      </div>
+      <div class="con-map">
+        <iframe src="https://maps.google.com/maps?q=Shop+No.+84,+Horanavu+Main+Road,+Banaswadi,+Bengaluru&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="con-right">
+      <div class="form-title">Send an Enquiry</div>
+      <p class="form-sub">We'll get back to you within a few hours. For urgent orders, call or WhatsApp us directly.</p>
+      <form id="cform">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" placeholder="Ravi Kumar" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+91 98765 43210">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label>Rice Variety of Interest</label>
+          <select>
+            <option value="">Select a variety...</option>
+            <option>Basmati Rice</option>
+            <option>Sona Masoori</option>
+            <option>Ponni Rice</option>
+            <option>Brown Rice</option>
+            <option>Multiple / Mixed Order</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Message / Requirements</label>
+          <textarea placeholder="Tell us about your requirements — quantity, frequency, delivery area..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Enquiry</button>
+        <p class="form-ok" id="fok">✓ Message sent! We'll be in touch shortly.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="ft-top">
+        <div class="ft-brand">
+          <a href="#hero" class="nav-logo" style="margin-bottom:8px; display:inline-flex;">
+            <div class="nav-logo-orb"><i class="fas fa-seedling"></i></div>
+            <div class="nav-logo-text">
+              <strong>Sri Manjunatha</strong>
+              <span>Rice Traders</span>
+            </div>
+          </a>
+          <p>Premium wholesale rice suppliers serving Bengaluru since 2008. Quality, reliability, and service you can count on.</p>
+          <div class="ft-socials">
+            <a href="#" class="ft-soc"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="ft-soc"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/918025450894" class="ft-soc" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="ft-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Our Products</a></li>
+            <li><a href="#why">Why Choose Us</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#products">Basmati Rice</a></li>
+            <li><a href="#products">Sona Masoori</a></li>
+            <li><a href="#products">Ponni Rice</a></li>
+            <li><a href="#products">Brown Rice</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:08025450894">080 2545 0894</a></li>
+            <li><a href="https://wa.me/918025450894" target="_blank">WhatsApp Us</a></li>
+            <li><a href="https://maps.google.com/?q=Horanavu+Main+Road+Banaswadi+Bengaluru" target="_blank">Get Directions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <p>© 2025 Sri Manjunatha Rice Traders. All rights reserved.</p>
+        <p>Banaswadi, Bengaluru – 560043</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/918025450894?text=Hello%2C%20I%20am%20interested%20in%20wholesale%20rice%20pricing." target="_blank" class="wa-fab" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const dot  = document.getElementById('cur-dot');
+    const ring = document.getElementById('cur-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+    });
+    (function animRing() {
+      rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    })();
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+    });
+
+    const spb = document.getElementById('spb');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+      spb.style.width = pct + '%';
+    }, { passive: true });
+
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    const ham   = document.getElementById('ham');
+    const mob   = document.getElementById('mob');
+    const mclose = document.getElementById('mob-close');
+    ham.addEventListener('click', () => mob.classList.add('open'));
+    mclose.addEventListener('click', () => mob.classList.remove('open'));
+    document.querySelectorAll('.mob-lnk').forEach(l => l.addEventListener('click', () => mob.classList.remove('open')));
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.r').forEach(el => io.observe(el));
+
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el  = e.target;
+        const end = parseInt(el.dataset.target);
+        const dur = 1800;
+        const t0  = performance.now();
+        (function tick(now) {
+          const p = Math.min((now - t0) / dur, 1);
+          const v = Math.round((1 - Math.pow(1 - p, 3)) * end);
+          el.textContent = v + '+';
+          if (p < 1) requestAnimationFrame(tick);
+        })(t0);
+        cio.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-n[data-target]').forEach(c => cio.observe(c));
+
+    document.getElementById('cform').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const ok = document.getElementById('fok');
+      ok.classList.add('on');
+      this.reset();
+      setTimeout(() => ok.classList.remove('on'), 4500);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>
